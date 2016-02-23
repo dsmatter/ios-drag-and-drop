@@ -40,6 +40,9 @@
  */
 - (instancetype)init;
 
+#pragma mark - Configuration
+
+@property (nonatomic) BOOL useFrontViewController;
 
 #pragma mark - Registering and Unregistering Drag Sources and Drop Targets
 

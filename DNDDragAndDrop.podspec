@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   
   s.name         = "DNDDragAndDrop"
-  s.version      = "1.1.3"
+  s.version      = "1.1.4"
   s.summary      = "A library that helps you support drag and drop operations in your iOS applications."
   
   s.description  = <<-DESC

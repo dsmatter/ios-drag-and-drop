@@ -27,6 +27,7 @@
         _window = window;
         _dragSources = [NSMapTable mapTableWithKeyOptions:NSMapTableWeakMemory valueOptions:NSMapTableStrongMemory];
         _dropTargets = [NSMapTable mapTableWithKeyOptions:NSMapTableWeakMemory valueOptions:NSMapTableWeakMemory];
+        _useFrontViewController = NO;
     }
     return self;
 }
@@ -40,9 +41,13 @@
 
 - (UIView *)dragPaneView {
     UIViewController *frontViewController = self.window.rootViewController;
-    while (frontViewController.presentedViewController != nil) {
-        frontViewController = frontViewController.presentedViewController;
+    
+    if (_useFrontViewController) {
+        while (frontViewController.presentedViewController != nil) {
+            frontViewController = frontViewController.presentedViewController;
+        }
     }
+    
     return frontViewController.view;
 }
 
