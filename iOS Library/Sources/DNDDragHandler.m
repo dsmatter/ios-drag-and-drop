@@ -105,13 +105,16 @@
     if ([self.currentDragOperation isDraggingViewRemoved] || self.isCancelled) {
         return;
     }
+  
+    // Avoid deallocation
+    DNDDragHandler* slf = self;
     
-    if (self.currentDragOperation.dropTargetView != nil) {
-        [self notifyDropInTarget:self.currentDragOperation.dropTargetView];
-        [self removeDragViewIfNecessary];
+    if (slf.currentDragOperation.dropTargetView != nil) {
+        [slf notifyDropInTarget:self.currentDragOperation.dropTargetView];
+        [slf removeDragViewIfNecessary];
     } else {
-        [self notifyDragCancel];
-        [self removeDragViewIfNecessary];
+        [slf notifyDragCancel];
+        [slf removeDragViewIfNecessary];
     }
 }
 
